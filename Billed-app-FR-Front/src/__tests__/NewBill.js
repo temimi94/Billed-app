@@ -88,5 +88,24 @@ describe("Given I am connected as an employee", () => {
       fireEvent.submit(formNewBill);
       expect(handleSubmit).toHaveBeenCalled();
     })
+
+    test("Then fields of newBills page should be loaded successfully", () => {
+      const html = NewBillUI();
+      document.body.innerHTML = html;
+
+      expect(screen.getByTestId("form-new-bill")).toBeTruthy();
+      expect(screen.getByTestId("expense-type")).toBeTruthy();
+      expect(screen.getByTestId("expense-name")).toBeTruthy();
+      expect(screen.getByTestId("datepicker")).toBeTruthy();
+      expect(screen.getByTestId("amount")).toBeTruthy();
+      expect(screen.getByTestId("vat")).toBeTruthy();
+      expect(screen.getByTestId("pct")).toBeTruthy();
+      expect(screen.getByTestId("commentary")).toBeTruthy();
+      expect(screen.getByTestId("file")).toBeTruthy();
+      expect(screen.getByRole("button")).toBeTruthy();
+    });
   })
 })
+
+
+
